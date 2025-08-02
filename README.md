@@ -2,13 +2,17 @@
 
 A comprehensive sales management platform designed specifically for multi-location gymnastics businesses to streamline lead tracking, performance monitoring, and sales resource management.
 
-## Project Overview
+<details>
+<summary><strong>📋 Project Overview</strong></summary>
 
 The Sales Toolkit Dashboard is a modern web application that centralizes sales operations across multiple gym locations. Built with React, TypeScript, and Supabase, it provides real-time insights into lead management, performance metrics, and sales resources, enabling gym owners and sales teams to make data-driven decisions and improve conversion rates.
 
 The platform serves as a unified hub where sales teams can track prospects from initial contact through enrollment, access proven sales scripts and resources, and monitor key performance indicators across all locations.
 
-## Core Goals
+</details>
+
+<details>
+<summary><strong>🎯 Core Goals</strong></summary>
 
 ### 1. Centralized Lead Management
 - **Unified Lead Tracking**: Consolidate all prospect information from multiple sources into a single, searchable database
@@ -30,7 +34,10 @@ The platform serves as a unified hub where sales teams can track prospects from 
 - **Mobile-Responsive Design**: Enable access from any device for on-the-go sales activities
 - **User-Friendly Interface**: Minimize training time with intuitive navigation and clear visual hierarchy
 
-## Key Functionality
+</details>
+
+<details>
+<summary><strong>⚡ Key Functionality</strong></summary>
 
 ### Lead Management System
 - **Comprehensive Lead Profiles**: Store parent and child names, contact information, lead source, and detailed notes
@@ -58,7 +65,10 @@ The platform serves as a unified hub where sales teams can track prospects from 
 - **Centralized Overview**: Option to view aggregated data across all locations
 - **Location-specific Data**: Filtered views showing only relevant leads, stats, and resources
 
-## Target Users
+</details>
+
+<details>
+<summary><strong>👥 Target Users</strong></summary>
 
 ### Primary Users
 - **Sales Representatives**: Front-line staff responsible for lead conversion and customer enrollment
@@ -75,7 +85,10 @@ The platform serves as a unified hub where sales teams can track prospects from 
 - **Resource Access**: Staff quickly access proven scripts during prospect calls
 - **Multi-location Analysis**: Owners compare performance across locations to identify best practices
 
-## Business Value
+</details>
+
+<details>
+<summary><strong>💼 Business Value</strong></summary>
 
 ### Revenue Impact
 - **Improved Conversion Rates**: Systematic lead tracking and follow-up reduces prospect loss
@@ -97,7 +110,10 @@ The platform serves as a unified hub where sales teams can track prospects from 
 - **Training Efficiency**: Centralized resources reduce onboarding time for new staff
 - **Technology Consolidation**: Single platform replaces multiple disparate systems
 
-## Technical Architecture
+</details>
+
+<details>
+<summary><strong>🏗️ Technical Architecture</strong></summary>
 
 ### Frontend Technology Stack
 - **React 18**: Modern component-based UI framework for responsive user interfaces
@@ -126,7 +142,10 @@ The platform serves as a unified hub where sales teams can track prospects from 
 - **Modern Browser Support**: ES2020+ features with appropriate polyfills
 - **Environment Configuration**: Secure environment variable management for different deployment stages
 
-## Getting Started
+</details>
+
+<details>
+<summary><strong>🚀 Getting Started</strong></summary>
 
 ### Prerequisites
 - Node.js 18+ and npm
@@ -145,5 +164,9 @@ The platform serves as a unified hub where sales teams can track prospects from 
 - Configure Row Level Security policies
 - Import initial location and resource data
 - Customize location IDs and names as needed
+
+</details>
+
+---
 
 This sales toolkit dashboard represents a comprehensive solution for modern gymnastics businesses seeking to optimize their sales operations through technology, data insights, and systematic processes.
