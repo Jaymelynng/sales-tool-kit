@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
-
-interface Location {
-  id: string;
-  custom_id: string;
-  name: string;
-}
+import { mockLocations, Location } from '../data/mockData';
 
 export function useLocation() {
   const [locations, setLocations] = useState<Location[]>([]);
@@ -14,19 +8,11 @@ export function useLocation() {
 
   async function fetchLocations() {
     setIsLoading(true);
-    console.log('Fetching locations...');
-    const { data, error } = await supabase
-      .from('locations')
-      .select('id, custom_id, name')
-      .order('name');
-    
-    console.log('Locations data:', data);
-    console.log('Error if any:', error);
-    
-    if (!error && data) {
-      setLocations(data);
-    }
-    setIsLoading(false);
+    // Simulate API call delay
+    setTimeout(() => {
+      setLocations(mockLocations);
+      setIsLoading(false);
+    }, 500);
   }
 
   useEffect(() => {
