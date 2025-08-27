@@ -210,3 +210,4 @@ export function calculateStatsFromLeads(leads: Lead[]): GymStats {
     new_leads,
     total_leads,
   };
+}
