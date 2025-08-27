@@ -21,9 +21,12 @@ export interface Lead {
 }
 
 export interface GymStats {
-  total_leads: number;
+  follow_ups: number;
+  conversions: number;
+  hot_leads: number;
+  recent_wins: number;
   new_leads: number;
-  successes: number;
+  total_leads: number;
   location_id?: string;
 }
 
@@ -117,16 +120,16 @@ export const mockLeads: Lead[] = [
 ];
 
 export const mockStats: Record<string, GymStats> = {
-  '1': { total_leads: 15, new_leads: 5, successes: 8, location_id: '1' },
-  '2': { total_leads: 12, new_leads: 3, successes: 6, location_id: '2' },
-  '3': { total_leads: 18, new_leads: 7, successes: 10, location_id: '3' },
-  '4': { total_leads: 9, new_leads: 2, successes: 4, location_id: '4' },
-  '5': { total_leads: 11, new_leads: 4, successes: 5, location_id: '5' },
-  '6': { total_leads: 14, new_leads: 6, successes: 7, location_id: '6' },
-  '7': { total_leads: 16, new_leads: 5, successes: 9, location_id: '7' },
-  '8': { total_leads: 13, new_leads: 3, successes: 6, location_id: '8' },
-  '9': { total_leads: 10, new_leads: 2, successes: 5, location_id: '9' },
-  '10': { total_leads: 8, new_leads: 1, successes: 3, location_id: '10' },
+  '1': { follow_ups: 3, conversions: 53, hot_leads: 1, recent_wins: 2, new_leads: 1, total_leads: 2, location_id: '1' },
+  '2': { follow_ups: 1, conversions: 100, hot_leads: 1, recent_wins: 1, new_leads: 0, total_leads: 1, location_id: '2' },
+  '3': { follow_ups: 1, conversions: 100, hot_leads: 0, recent_wins: 1, new_leads: 0, total_leads: 1, location_id: '3' },
+  '4': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '4' },
+  '5': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '5' },
+  '6': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '6' },
+  '7': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '7' },
+  '8': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '8' },
+  '9': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '9' },
+  '10': { follow_ups: 0, conversions: 0, hot_leads: 0, recent_wins: 0, new_leads: 0, total_leads: 0, location_id: '10' },
 };
 
 export const mockResources: Resource[] = [
@@ -190,12 +193,20 @@ Would you like to schedule a tour of our facility or try a free trial class?`,
   }
 ];
 
-// Helper function to get aggregated stats for all locations
-export function getAggregatedStats(): GymStats {
-  const allStats = Object.values(mockStats);
+// Helper function to calculate stats from actual lead data
+export function calculateStatsFromLeads(leads: Lead[]): GymStats {
+  const total_leads = leads.length;
+  const new_leads = leads.filter(lead => lead.status === 'new').length;
+  const hot_leads = leads.filter(lead => lead.temperature === 'hot').length;
+  const recent_wins = leads.filter(lead => lead.status === 'enrolled').length;
+  const follow_ups = leads.filter(lead => lead.follow_up_date && new Date(lead.follow_up_date) >= new Date()).length;
+  const conversions = total_leads > 0 ? Math.round((recent_wins / total_leads) * 100) : 0;
+
   return {
-    total_leads: allStats.reduce((sum, stat) => sum + stat.total_leads, 0),
-    new_leads: allStats.reduce((sum, stat) => sum + stat.new_leads, 0),
-    successes: allStats.reduce((sum, stat) => sum + stat.successes, 0),
+    follow_ups,
+    conversions,
+    hot_leads,
+    recent_wins,
+    new_leads,
+    total_leads,
   };
-}
